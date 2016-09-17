@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{151D2E53-A2C4-4D7D-83FE-D05416EBD58E}") = "BTJ.PowerApps.AzureDBResourceGroup", "BTJ.PowerApps.AzureDBResourceGroup\BTJ.PowerApps.AzureDBResourceGroup.deployproj", "{BF0B7E9A-F059-4203-B21F-A220CC636E80}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "BTJ.PowerApps.AzureDBSample", "BTJ.PowerApps.AzureDBSample\BTJ.PowerApps.AzureDBSample.sqlproj", "{6A36892D-7993-4FB8-9C12-3FD827AFA03D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTJ.PowerApps.WebApp", "BTJ.PowerApps.WebApp\BTJ.PowerApps.WebApp.csproj", "{B981634E-0600-441B-9AEE-6AB6417A9063}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BTJ.PowerApps.APIApp", "BTJ.PowerApps.APIApp\BTJ.PowerApps.APIApp.csproj", "{A711A8CE-7633-4C6A-A2CB-89840948A985}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BF0B7E9A-F059-4203-B21F-A220CC636E80}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF0B7E9A-F059-4203-B21F-A220CC636E80}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF0B7E9A-F059-4203-B21F-A220CC636E80}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF0B7E9A-F059-4203-B21F-A220CC636E80}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A36892D-7993-4FB8-9C12-3FD827AFA03D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6A36892D-7993-4FB8-9C12-3FD827AFA03D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6A36892D-7993-4FB8-9C12-3FD827AFA03D}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{6A36892D-7993-4FB8-9C12-3FD827AFA03D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6A36892D-7993-4FB8-9C12-3FD827AFA03D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6A36892D-7993-4FB8-9C12-3FD827AFA03D}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B981634E-0600-441B-9AEE-6AB6417A9063}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B981634E-0600-441B-9AEE-6AB6417A9063}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B981634E-0600-441B-9AEE-6AB6417A9063}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B981634E-0600-441B-9AEE-6AB6417A9063}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A711A8CE-7633-4C6A-A2CB-89840948A985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A711A8CE-7633-4C6A-A2CB-89840948A985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A711A8CE-7633-4C6A-A2CB-89840948A985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A711A8CE-7633-4C6A-A2CB-89840948A985}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

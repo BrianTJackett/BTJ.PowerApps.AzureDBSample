@@ -1,0 +1,101 @@
+﻿{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "btj-powerappsdemoAdminLogin": {
+            "type": "string",
+            "minLength": 1
+        },
+        "btj-powerappsdemoAdminLoginPassword": {
+            "type": "securestring"
+        },
+        "BTJ.PowerApps.AzureDBName": {
+            "type": "string",
+            "minLength": 1
+        },
+        "BTJ.PowerApps.AzureDBCollation": {
+            "type": "string",
+            "minLength": 1,
+            "defaultValue": "SQL_Latin1_General_CP1_CI_AS"
+        },
+        "BTJ.PowerApps.AzureDBEdition": {
+            "type": "string",
+            "defaultValue": "Basic",
+            "allowedValues": [
+                "Basic",
+                "Standard",
+                "Premium"
+            ]
+        },
+        "BTJ.PowerApps.AzureDBRequestedServiceObjectiveName": {
+            "type": "string",
+            "defaultValue": "Basic",
+            "allowedValues": [
+                "Basic",
+                "S0",
+                "S1",
+                "S2",
+                "P1",
+                "P2",
+                "P3"
+            ],
+            "metadata": {
+                "description": "Describes the performance level for Edition"
+            }
+        }
+    },
+    "variables": {
+        "btj-powerappsdemoName": "[concat('btj-powerappsdemo', uniqueString(resourceGroup().id))]"
+    },
+    "resources": [
+        {
+            "name": "[variables('btj-powerappsdemoName')]",
+            "type": "Microsoft.Sql/servers",
+            "location": "[resourceGroup().location]",
+            "apiVersion": "2014-04-01-preview",
+            "dependsOn": [ ],
+            "tags": {
+                "displayName": "btj-powerappsdemo"
+            },
+            "properties": {
+                "administratorLogin": "[parameters('btj-powerappsdemoAdminLogin')]",
+                "administratorLoginPassword": "[parameters('btj-powerappsdemoAdminLoginPassword')]"
+            },
+            "resources": [
+                {
+                    "name": "AllowAllWindowsAzureIps",
+                    "type": "firewallrules",
+                    "location": "[resourceGroup().location]",
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [
+                        "[concat('Microsoft.Sql/servers/', variables('btj-powerappsdemoName'))]"
+                    ],
+                    "properties": {
+                        "startIpAddress": "0.0.0.0",
+                        "endIpAddress": "0.0.0.0"
+                    }
+                },
+                {
+                    "name": "[parameters('BTJ.PowerApps.AzureDBName')]",
+                    "type": "databases",
+                    "location": "[resourceGroup().location]",
+                    "apiVersion": "2014-04-01-preview",
+                    "dependsOn": [
+                        "[variables('btj-powerappsdemoName')]"
+                    ],
+                    "tags": {
+                        "displayName": "BTJ.PowerApps.AzureDB"
+                    },
+                    "properties": {
+                        "collation": "[parameters('BTJ.PowerApps.AzureDBCollation')]",
+                        "edition": "[parameters('BTJ.PowerApps.AzureDBEdition')]",
+                        "maxSizeBytes": "1073741824",
+                        "requestedServiceObjectiveName": "[parameters('BTJ.PowerApps.AzureDBRequestedServiceObjectiveName')]"
+                    }
+                }
+            ]
+        }
+    ],
+    "outputs": {
+    }
+}
